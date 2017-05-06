@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
 //for Heroku Deployment
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3060;
 
 var app = express();
 
