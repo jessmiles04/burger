@@ -21,3 +21,5 @@ connection.connect(function(err){
     console.log('Connection to db')
 });
 
+//Connection for ORM
+modules.exports = connection;
