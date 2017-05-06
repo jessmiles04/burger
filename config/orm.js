@@ -40,9 +40,15 @@ InsertOne: function(table, cols, vals, cb){
     },
 
 //Update
-Update: function(){
+Update: function(table, objColVals, condition, cb){
+    //QueryString again, some changes based off of stack overflow
+    var queryString = "UPDATE" + table;
+        queryString += " SET ";
+        queryString += objToSQL(objColVAls);
+        queryString += " WHERE ";
+        queryString += condition;
 
-    
+        console.log("update" + queryString);
         //db query
         connection.query(queryString, function(err, result){
             if (err){
@@ -51,4 +57,8 @@ Update: function(){
             //alledged callback
             cb(result);
         });
-    };
+    }
+};
+
+//Export orm
+module.exports = orm;
