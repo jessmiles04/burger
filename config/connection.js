@@ -2,24 +2,25 @@
 var mysql = require('mysql');
 
 //actual connection variable
-var connection;
+//var connection;
 
 //connection on localhost
-connection = mysql.createConnection({
-    port: 3060,
+var connection = mysql.createConnection({
+    port: 3306,
     host: 'localhost',
     user: 'root',
     password: 'D@zy2012',
     database: 'burgers_db'
-})
-
-connection.connect(function(err){
-    if (err) {
-        //message if there is an error connecting with MySQL
-        console.error('Error: Connection issue with --' + err.stack + '\n\n');
-    }
-    console.log('Connection to db')
 });
+
+connection.connect(function(err) {
+  if (err) {
+    console.error("error connecting: " + err.stack);
+    return;
+  }
+  console.log("connected as id " + connection.threadId);
+});
+
 
 //Connection for ORM
 module.exports = connection;

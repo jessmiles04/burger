@@ -1,9 +1,9 @@
-<h1>Chow Time!</h1>
+<div class="jumbotron" background="../public/assets/img/banner.jpg"><h1>Chow Time!</h1> </div>
 
 <main>
   <div class="container">
     <div class="row">
-      <div class="col s6">
+      <div class="col-md-5 col-xs-12">
         {{#each burgers}}
           {{#unless this.devoured}}
             <div>
@@ -15,7 +15,17 @@
         {{/each}}
       </div>
 
-      <div class="col s6">
+
+
+  <div class="col-md-2 col-xs-12">
+    <h3>Add A Burger</h3>
+    <form action="/burgers" method="POST">
+      <input type="text" id="name" name="burger_name" placeholder="New Burger">
+      <button type="submit" class="addBurgerButton">Add Burger</button>
+    </form>
+  </div>
+
+        <div class="col-md-5 col-xs-12">
         {{#each burgers}}
           {{#if this.devoured}}
             <div class='burgerEaten'>
@@ -25,19 +35,7 @@
             </div>
           {{/if}}
         {{/each}}
+        </div>
       </div>
-    </div>
-  </div>
+    </div> 
 </main>
-
-<h2>Add A Burger</h2>
-
-<div class="row">
-  <div class="col s12">
-    <form action="/burgers" method="POST">
-      <input type="text" id="name" name="burger_name" placeholder="New Burger">
-      <button type="submit" class="addBurgerButton">Add The Burger</button>
-    </form>
-  </div>
-</div>
-

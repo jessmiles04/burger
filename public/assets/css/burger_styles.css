@@ -1,3 +1,5 @@
-html {
- 	background-image: src("../img/background.jpg");
+body {
+ 	background-image: url("../img/background.jpg");
  }
+
+ 

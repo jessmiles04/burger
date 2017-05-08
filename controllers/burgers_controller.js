@@ -1,7 +1,7 @@
 //import express
 var express = require('express');
 //import burger.js
-var burger = require('../models/burger.js');
+var burgers = require('../models/burger.js');
 //create router for app
 var router = express.Router();
 
@@ -10,7 +10,7 @@ var router = express.Router();
 //Get
 router.get('/', function(req, res){
 //select all
-    burger.selectAll(function(data){
+    burgers.selectAll(function(data){
         var burObject = {
             burgers: data
         };
@@ -21,12 +21,12 @@ router.get('/', function(req, res){
 
 router.post('/burgers', function(req, res){
     //insert one
-    burger.insertOne([
+    burgers.insertOne([
         'burger_name'
     ],[
         req.body.burger_name
     ], 
-    function(data){
+    function(){
         res.redirect('/');
     });
 });
@@ -35,12 +35,11 @@ router.post('/burgers', function(req, res){
 
 router.put('/burgers/:id', function(req, res) {
     //update one
-    var newBurger = 'id = ' + req.params.id;
+    var condition = 'id = ' + req.params.id;
 
-    burger.updateOne ({
+    burgers.updateOne({
         devoured: true
-    }, 
-    condition, function(data) {
+    }, condition, function() {
         res.redirect('/');
     });
 });
