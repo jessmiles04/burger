@@ -1,9 +1,20 @@
-<div class="jumbotron" background="../public/assets/img/banner.jpg"><h1>Chow Time!</h1> </div>
 
-<main>
-  <div class="container">
+
+<main class="container">
+  <div class="jumbotron">
+  <div class="row">
+    <div class="col-md-5 col-xs-12">
+      <img src="./assets/img/background2.jpg" alt="tate" class="img-rounded">
+    </div>
+    <div class="col-md-7 col-xs-12">
+  <h1>Pop Tate's Burger Eating Contest</h1> </div>
+  </div>
+</div>
+
+  <div class="container" id="body">
     <div class="row">
       <div class="col-md-5 col-xs-12">
+        <h4>Available Burgers</h4>
         {{#each burgers}}
           {{#unless this.devoured}}
             <div>
@@ -18,14 +29,15 @@
 
 
   <div class="col-md-2 col-xs-12">
-    <h3>Add A Burger</h3>
+    <h4>Add A Burger</h4>
     <form action="/burgers" method="POST">
       <input type="text" id="name" name="burger_name" placeholder="New Burger">
       <button type="submit" class="addBurgerButton">Add Burger</button>
     </form>
   </div>
 
-        <div class="col-md-5 col-xs-12">
+        <div class="col-md-4 col-xs-12">
+          <h4>Burgers Eaten</h4>
         {{#each burgers}}
           {{#if this.devoured}}
             <div class='burgerEaten'>
